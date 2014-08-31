@@ -1,0 +1,112 @@
+<!doctype html>
+
+<html lang="ja">
+
+  <head>
+
+    <meta charset="utf-8">
+    <title>fade in texts in vertical lines</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="author" content="Yuki Yamashina and Minorin" />
+    <meta name="keywords" content="jQuery,plugin,text,vertical lines" />
+    <meta name="description" content="jQuery plugin to fade in texts in vertical lines" />
+    <link rel="stylesheet" href="css/index.css" />
+
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="js/jquery.fadeInTextsInVerticalLines.js"></script>
+    <script>
+    $(document).ready(function(){
+      var defaults1 = {
+                parentElementClass : '.fadein1',
+                markElement        : 'span',
+                lineByLine         : true,
+                opacityThreshold   : 0.1,
+                delaySpeed         : 100,
+                fadeSpeed          : 1000,
+                fontSize           : '1.5rem',
+                lineHeight         : '1.8rem'
+      };
+      $(document).verticalTextsWithDelay(defaults1);
+      var defaults2 = {
+                parentElementClass : '.fadein2',
+                markElement        : 'span',
+                lineByLine         : true,
+                opacityThreshold   : 1.0,
+                delaySpeed         : 1,
+                fadeSpeed          : 2000,
+                fontSize           : '1.5rem',
+                lineHeight         : '1.8rem'
+      };
+      $(document).verticalTextsWithDelay(defaults2);
+      var defaults3 = {
+                parentElementClass : '.fadein3',
+                markElement        : 'span',
+                lineByLine         : false,
+                opacityThreshold   : 1.0,
+                delaySpeed         : 200,
+                fadeSpeed          : 2000,
+                fontSize           : '1.5rem',
+                lineHeight         : '1.8rem'
+      };
+      $(document).verticalTextsWithDelay(defaults3);
+    });
+    </script>
+
+
+  </head>
+
+  <body>
+
+    <div class="settings1">
+      <span>lineByLine=true, opacityThreshold=0.1, delaySpeed=100, fadeSpeed=1000</span>
+    </div>
+
+    <div class="settings2">
+      <span>lineByLine=true, opacityThreshold=1.0, delaySpeed=1, fadeSpeed=2000</span>
+    </div>
+
+    <div class="settings3">
+      <span>lineByLine=false, opacityThreshold=1.0, delaySpeed=200, fadeSpeed=2000</span>
+    </div>
+
+    <div class="fadein1">
+      <span class="vertical">およそ千四百年前から始まったとされる日本の刺繍。</span>
+      <span class="vertical">その中でも京都で発展したものを、</span>
+      <span class="vertical">　-京縫-　といい、</span>
+      <span class="vertical">豪華な金糸銀糸を用い、</span>
+      <span class="vertical">花鳥風月などのモチーフを写実的に表現した図柄が特徴です。</span>
+      <span class="vertical">そして、それに独自の技法を加えた、</span>
+      <span class="vertical">　-糸縫-</span>
+      <span class="vertical">ひとつひとつ、</span>
+      <span class="vertical">職人たちの想いで紡がれた、</span>
+      <span class="vertical">伝統工芸の美しさをご覧ください。</span>
+    </div>
+
+    <div class="fadein2">
+      <span class="vertical">およそ千四百年前から始まったとされる日本の刺繍。</span>
+      <span class="vertical">その中でも京都で発展したものを、</span>
+      <span class="vertical">　-京縫-　といい、</span>
+      <span class="vertical">豪華な金糸銀糸を用い、</span>
+      <span class="vertical">花鳥風月などのモチーフを写実的に表現した図柄が特徴です。</span>
+      <span class="vertical">そして、それに独自の技法を加えた、</span>
+      <span class="vertical">　-糸縫-</span>
+      <span class="vertical">ひとつひとつ、</span>
+      <span class="vertical">職人たちの想いで紡がれた、</span>
+      <span class="vertical">伝統工芸の美しさをご覧ください。</span>
+    </div>
+
+    <div class="fadein3">
+      <span class="vertical">およそ千四百年前から始まったとされる日本の刺繍。</span>
+      <span class="vertical">その中でも京都で発展したものを、</span>
+      <span class="vertical">　-京縫-　といい、</span>
+      <span class="vertical">豪華な金糸銀糸を用い、</span>
+      <span class="vertical">花鳥風月などのモチーフを写実的に表現した図柄が特徴です。</span>
+      <span class="vertical">そして、それに独自の技法を加えた、</span>
+      <span class="vertical">　-糸縫-</span>
+      <span class="vertical">ひとつひとつ、</span>
+      <span class="vertical">職人たちの想いで紡がれた、</span>
+      <span class="vertical">伝統工芸の美しさをご覧ください。</span>
+    </div>
+
+  </body>
+</html>
