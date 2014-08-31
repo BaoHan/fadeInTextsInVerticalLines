@@ -4,7 +4,7 @@ fadeInTextsInVerticalLines
 
 テキストを縦書きでフェードイン表示させるプラグインです。
 
-[デモページはこちら]()
+[デモページはこちら](http://yukiyamashina.github.io/fadeInTextsInVerticalLines/)
 
 ## JSの設定
 
