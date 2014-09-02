@@ -10,6 +10,10 @@ body {
  height: 100%;
 }
 
+body {
+  font-family: 'Hiragino Kaku Gothic Pro W3', 'Meiryo', 'Noto Sans Japanese Regular', sans-serif;
+}
+
 .vertical {
     opacity: 0;
 }
