@@ -13,13 +13,11 @@
     <link rel="stylesheet" href="css/index.css" />
 
     <script src="js/google_analytics.js"></script>
-    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="js/jquery.fadeInTextsInVerticalLines.js"></script>
     <script>
     $(document).ready(function(){
       var defaults1 = {
-                parentElementClass : '.fadein1',
-                markElement        : 'span',
                 lineByLine         : true,
                 opacityThreshold   : 0.1,
                 delaySpeed         : 100,
@@ -27,10 +25,8 @@
                 fontSize           : '1.5rem',
                 lineHeight         : '1.8rem'
       };
-      $(document).verticalTextsWithDelay(defaults1);
+      $('.fadein1').verticalTextsWithDelay(defaults1);
       var defaults2 = {
-                parentElementClass : '.fadein2',
-                markElement        : 'span',
                 lineByLine         : true,
                 opacityThreshold   : 1.0,
                 delaySpeed         : 1,
@@ -38,10 +34,8 @@
                 fontSize           : '1.5rem',
                 lineHeight         : '1.8rem'
       };
-      $(document).verticalTextsWithDelay(defaults2);
+      $('.fadein2').verticalTextsWithDelay(defaults2);
       var defaults3 = {
-                parentElementClass : '.fadein3',
-                markElement        : 'span',
                 lineByLine         : false,
                 opacityThreshold   : 1.0,
                 delaySpeed         : 200,
@@ -49,7 +43,7 @@
                 fontSize           : '1.5rem',
                 lineHeight         : '1.8rem'
       };
-      $(document).verticalTextsWithDelay(defaults3);
+      $('.fadein3').verticalTextsWithDelay(defaults3);
     });
     </script>
 

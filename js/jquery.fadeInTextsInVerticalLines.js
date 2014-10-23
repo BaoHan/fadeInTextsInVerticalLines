@@ -14,23 +14,17 @@
     $.fn.verticalTextsWithDelay = function(options) {
 
         var defaults = {
-            parentElementClass : '.fadein',
-            markElement        : 'span',
-            lineByLine         : true,
-            opacityThreshold   : 0.1,
-            delaySpeed         : 1000,
-            fadeSpeed          : 2500,
-            fontSize           : '1.5rem',
-            lineHeight         : '1.8rem'
+            lineByLine       : true,
+            opacityThreshold : 0.1,
+            delaySpeed       : 1000,
+            fadeSpeed        : 2500,
+            fontSize         : '1.5rem',
+            lineHeight       : '1.8rem'
         };
 
         var options = $.extend({},defaults,options);
 
         // CSS settings
-        $('html').css({
-            'font-size'      : '62.5%'
-        });
-
         $('.vertical').css({
             'margin'         : 0,
             'padding'        : 0,
@@ -44,43 +38,48 @@
             'font-size'      : options.fontSize
         });        
 
-        var strings = [];
- 
-        $(options.parentElementClass +' > '+ options.markElement +'.vertical').each(function(index){
+        var _strings = [];
+
+        var _this  = $(this),
+            _these = $(this).children( 'span.vertical' );
+
+        _these.each( function( index ) {
+
+            var self  = this;
 
             // substitute texts for strings and delete texts
-            $(this).css('opacity','1');
-            strings[index] = $(this).text();
-            $(this).text('');
-
-            var self = this;
+            $(self).css('opacity','1');
+            _strings[index] = $(self).text();
+            $(self).text('');
 
             if ( options.lineByLine ) {
 
-                var interval = setInterval(function(){
+                var interval = setInterval( function() {
                     // delay showing next line
-                    if ( index == 0 || $(options.parentElementClass +' > ' + options.markElement +'.vertical')
-                    .eq(index-1).children(options.markElement+':last').css('opacity') >= options.opacityThreshold ){
-                        clearInterval(interval);
-                        showTexts(self,strings,index,options);
+                    if ( index == 0 || _these.eq( index - 1 )
+                                             .children( 'span:last' )
+                                             .css('opacity') >= options.opacityThreshold ) {
+                        clearInterval( interval );
+                        showTexts( self, _strings[index], options );
                     }
                 }, 50);
 
             } else {
-                showTexts(self,strings,index,options);
+                showTexts( self, _strings[index], options );
             }
 
+            function showTexts( element, string, options ) {
 
-            function showTexts(obj,strings,index,options) {
+                var $element = $(element);
 
-                for (var j = 0; j < strings[index].length; j++) {
+                for ( var j = 0; j < string.length; j++ ) {
 
-                    var character = strings[index].substr(j,1);
+                    var character = string.substr(j,1);
 
                     switch ( character ) {
                         case '、':
                         case '。':
-                            $(self).append('<span class="vertical period">' + character + '</span>');
+                            $element.append('<span class="vertical period">' + character + '</span>');
                             $('.period').css({
                                 'position'      : 'relative',
                                 'display'       : 'block',
@@ -107,7 +106,7 @@
                         case 'ゥ':
                         case 'ェ':
                         case 'ォ':
-                            $(self).append('<span class="vertical smallChar">' + character + '</span>');
+                            $element.append('<span class="vertical smallChar">' + character + '</span>');
                             $('.smallChar').css({
                                 'position'      : 'relative',
                                 'display'       : 'block',
@@ -117,7 +116,7 @@
                             });
                             break;
                         case '-':
-                            $(self).append('<span class="vertical bar">｜</span>');
+                            $element.append('<span class="vertical bar">｜</span>');
                             $('.bar').css({
                                 'position'      : 'relative',
                                 'display'       : 'block',
@@ -128,7 +127,7 @@
                             });
                             break;
                         case 'ー':
-                            $(self).append('<span class="vertical macron">' + character + '</span>');
+                            $element.append('<span class="vertical macron">' + character + '</span>');
                             $('.macron').css({
                                 'position'      : 'relative',
                                 'display'       : 'block',
@@ -138,12 +137,14 @@
                             });
                             break;
                         default:
-                            $(self).append('<span class="vertical">' + character + '</span>');
+                            $element.append('<span class="vertical">' + character + '</span>');
                             break;
                     }
 
                     // fade in characters one by one with delay
-                    $(self).children('span:last').delay(options.delaySpeed*j).animate({'opacity':'1'},options.fadeSpeed);
+                    $element.children( 'span:last' )
+                            .delay( options.delaySpeed * j )
+                            .animate( {'opacity':'1'}, options.fadeSpeed );
 
                 }
    

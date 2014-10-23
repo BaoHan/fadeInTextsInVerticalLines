@@ -11,13 +11,11 @@ fadeInTextsInVerticalLines
 jQuery本体とjquery.fadeInTextsInVerticalLines.jsを読み込んだ後、プラグインの設定をしてください。以下は設定例です。
 
 ```HTML
-<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="js/jquery.fadeInTextsInVerticalLines.js"></script>
 <script>
 $(document).ready(function(){
   var defaults1 = {
-            parentElementClass : '.fadein1',
-            markElement        : 'span',
             lineByLine         : true,
             opacityThreshold   : 0.1,
             delaySpeed         : 100,
@@ -25,6 +23,7 @@ $(document).ready(function(){
             fontSize           : '1.5rem',
             lineHeight         : '1.8rem'
   };
+  $('.fadein1').verticalTextsWithDelay(defaults1);
 });
 </script>
 ```
@@ -41,7 +40,7 @@ $(document).ready(function(){
 
 ## HTML body part
 
-上記の例の場合のHTMLのbody要素の例です。parentElementClassで指定したクラスを親要素に、テキストを入れる要素にはmarkElementで指定したものを使用してください。
+上記の例の場合のHTMLのbody要素の例です。縦書き表示させるブロックにクラス名を設定し、その中の一行ずつをspan要素で囲んでください。span要素にはverticalというクラスをつけてください。
 
 ```HTML
 <div class="fadein1">
